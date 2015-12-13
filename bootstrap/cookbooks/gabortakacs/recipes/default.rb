@@ -1,8 +1,7 @@
 nginx_conf_path = '/etc/nginx/conf.d'
 
 service 'nginx' do
-  supports status: true, restart: true, reload: true
-  action :nothing
+  action :stop
 end
 
 file "#{nginx_conf_path}/default.conf" do
@@ -11,11 +10,30 @@ end
 
 template "#{nginx_conf_path}/gabortakacs.conf" do
   source 'gabortakacs.conf'
-  notifies :restart, 'service[nginx]', :immediately
 end
 
-directory "/var/www/gabortakacs_com/" do
+site_root = '/var/www/gabortakacs_com'
+
+directory site_root do
   recursive true
 end
 
 package 'git'
+
+git "#{site_root}/letsencrypt" do
+  repository 'https://github.com/letsencrypt/letsencrypt'
+  action :sync
+end
+
+directory '/etc/nginx/ssl'
+
+unless File.exists? '/etc/letsencrypt/live/gabortakacs.com/fullchain.pem'
+  execute 'get_ssl_cert' do
+    cwd "#{site_root}/letsencrypt"
+    command './letsencrypt-auto certonly --standalone -d gabortakacs.com --email me@gabortakacs.com --agree-tos'
+  end
+end
+
+service 'nginx' do
+  action :start
+end
