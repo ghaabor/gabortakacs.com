@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #C2C2C2;
+  background-image: url("../images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#container {
+  height: 100%;
+  margin: 0 auto;
+  min-height: 100%;
+  position: relative;
+  width: 651px;
+}
+
+@media all and (orientation: landscape) {
+  #content {
+    position: absolute;
+    top: 50%;
+    margin-top: -200px;
+    width: inherit;
+  }
+}
+
+#name {
+  color: #FFFFFF;
+  font-family: Hack, monospace;
+  font-size: 72px;
+  line-height: 96px;
+  visibility: hidden;
+  opacity: 0.0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+.social-link {
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: block;
+  height: 70px;
+  margin: 0 45px;
+  width: 70px;
+  float: left;
+  visibility: hidden;
+  opacity: 0.0;
+}
+
+#icons {
+  margin: 0 auto;
+  height: 70px;
+  width: 390px;
+}
+
+#github {
+  background-image: url("../images/github.png");
+  margin-left: 0;
+}
+
+#mail {
+  background-image: url("../images/mail.png");
+}
+
+#linkedin {
+  background-image: url("../images/linkedin.png");
+  margin-right: 0;
+}
+
+#linkedin:after {
+  clear: both;
+}
+
+@media all and (orientation: portrait) {
+  #content {
+    top: 10%;
+  }
+
+  .social-link {
+    clear: both;
+    height: 15vh;
+    max-height: 210px;
+    margin: 0 auto 5vh;
+    width: 15vh;
+    max-width: 210px;
+  }
+
+  #icons {
+    margin: 5vh auto 0;
+    width: 15vh;
+  }
+}
+
+@media only screen and (-moz-min-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-devicepixel-ratio: 2),
+only screen and (min-resolution: 2dppx) {
+  body {
+    background-image: url("../images/bg@3x.png");
+  }
+  #github {
+    background-image: url("../images/github@3x.png");
+  }
+  #mail {
+    background-image: url("../images/mail@3x.png");
+  }
+  #linkedin {
+    background-image: url("../images/linkedin@3x.png");
+  }
+}
+
+/* Typed.js setup */
+.typed-cursor {
+    opacity: 1;
+    -webkit-animation: blink 1s infinite;
+    -moz-animation: blink 1s infinite;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-webkit-keyframes blink {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+
+@-moz-keyframes blink {
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
