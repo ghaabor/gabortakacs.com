@@ -1,6 +1,9 @@
 {
-    "run_list": [
-      "recipe[nginx::default]",
-      "recipe[gabortakacs::default]"
-    ]
+  "nginx": {
+    "version": "1.9.9"
+  },
+  "run_list": [
+    "recipe[apt]",
+    "recipe[gabortakacs::default]"
+  ]
 }
