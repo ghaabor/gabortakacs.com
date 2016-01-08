@@ -6,7 +6,7 @@ html, body {
 
 body {
   background: #C2C2C2;
-  background-image: url("../images/bg.png");
+  background-image: url("../images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -100,13 +100,15 @@ body {
   }
 }
 
-@media only screen and (-moz-min-device-pixel-ratio: 2),
-only screen and (-o-min-device-pixel-ratio: 2),
+@media
+only screen and (-moz-min-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-devicepixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx) {
   body {
-    background-image: url("../images/bg@3x.png");
+    background-image: url("../images/bg@3x.jpg");
   }
   #github {
     background-image: url("../images/github@3x.png");
@@ -124,6 +126,7 @@ only screen and (min-resolution: 2dppx) {
     opacity: 1;
     -webkit-animation: blink 1s infinite;
     -moz-animation: blink 1s infinite;
+    -o-animation: blink 1s infinite;
     animation: blink 1s infinite;
 }
 
